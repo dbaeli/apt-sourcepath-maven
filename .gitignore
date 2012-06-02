@@ -1,0 +1,7 @@
+atlassian-*.xml
+*.iml
+.idea
+.project
+.classpath
+target
+*/target

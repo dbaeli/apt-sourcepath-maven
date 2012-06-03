@@ -14,9 +14,60 @@
       <artifactId>base</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.apt</groupId>
+      <artifactId>example</artifactId>
+    </dependency>
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <scope>compile</scope>
     </dependency>
   </dependencies>
+  <build>
+    <plugins>
+      <!--
+      <plugin>
+        <groupId>org.bsc.maven</groupId>
+        <artifactId>maven-processor-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>apt-test-sources</id>
+            <goals>
+              <goal>process</goal>
+            </goals>
+            <phase>generate-sources</phase>
+            <configuration>
+              <compilerArguments>-encoding UTF-8</compilerArguments>
+              <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
+              <processors>
+                <processor>org.test.apt.TestProcessor</processor>
+              </processors>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      -->
+      <plugin>
+        <groupId>net.courtanet.devtools.maven</groupId>
+        <artifactId>maven-plugin-apt-java6</artifactId>
+        <version>2.2-SNAPSHOT</version>
+        <executions>
+          <execution>
+            <id>generate-i18n-source</id>
+            <goals>
+              <goal>process</goal>
+            </goals>
+            <phase>generate-sources</phase>
+            <configuration>
+              <compilerArguments>-encoding UTF-8</compilerArguments>
+              <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
+              <processors>
+                <processor>org.test.apt.TestProcessor</processor>
+              </processors>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>
